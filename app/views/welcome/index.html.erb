@@ -1,0 +1,60 @@
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+<h1>Chuck Norris facts</h1>
+
+
+<%= button_to "Aleatorio", action: "index", aleatorio: true, categoria: false %>
+
+
+<%= button_to "music", action: "index", aleatorio: false, categoria: "music" %>
+<%= button_to "dev", action: "index", aleatorio: false, categoria: "dev" %>
+<%= button_to "movie", action: "index", aleatorio: false, categoria: "movie" %>
+<%= button_to "food", action: "index", aleatorio: false, categoria: "food" %>
+<%= button_to "celebrity", action: "index", aleatorio: false, categoria: "celebrity" %>
+<%= button_to "science", action: "index", aleatorio: false, categoria: "science" %>
+<%= button_to "sport", action: "index", aleatorio: false, categoria: "sport" %>
+
+
+<h2>last fact: <%= @value %></h2>
+<h2>last category: <%= @category %></h2>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Fact</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facts.each do |fact| %>
+      <tr>
+        <td><%= fact.category || "no category"%></td>
+        <td><%= fact.text %></td>
+      </tr>
+    <% end if @facts %>
+  </tbody>
+</table>
+
+
+<%#"explicit","dev","movie","food","celebrity","science","sport",
+"political","religion","animal","history","music","travel",
+"career","money","fashion" %>
